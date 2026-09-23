@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta 
+  name="viewport" 
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>For You ❤️</title>
+
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+
+<body>
+
+  <!-- หน้า Loading -->
+  <section id="loadingPage" class="page active">
+    <div class="loading-box">
+      <div class="heart-logo">♥</div>
+
+      <h1>LOVEING...</h1>
+
+      <div class="progress">
+        <div id="progressBar"></div>
+      </div>
+
+      <p id="loadingText"></p>
+    </div>
+  </section>
+
+
+ <!-- หน้าใส่รหัส -->
+<section id="welcomePage" class="page">
+  <div class="card password-card">
+
+    <div class="lock-icon">🔐</div>
+
+    <p class="small-text">PRIVATE ACCESS</p>
+
+    <h1>Pass Word</h1>
+
+    <p>What's the code?</p>
+    <p2>anniversary</p2>
+
+    <div class="pin-display">
+      <div class="pin-dot"></div>
+      <div class="pin-dot"></div>
+      <div class="pin-dot"></div>
+      <div class="pin-dot"></div>
+      <div class="pin-dot"></div>
+      <div class="pin-dot"></div>
+    </div>
+
+    <p id="pinMessage"></p>
+
+    <div class="keypad">
+
+      <button onclick="pressNumber('1')">1</button>
+      <button onclick="pressNumber('2')">2</button>
+      <button onclick="pressNumber('3')">3</button>
+
+      <button onclick="pressNumber('4')">4</button>
+      <button onclick="pressNumber('5')">5</button>
+      <button onclick="pressNumber('6')">6</button>
+
+      <button onclick="pressNumber('7')">7</button>
+      <button onclick="pressNumber('8')">8</button>
+      <button onclick="pressNumber('9')">9</button>
+
+      <button onclick="pressNumber('❤️')">❤️</button>
+      <button onclick="pressNumber('0')">0</button>
+      <button onclick="deleteNumber()">⌫</button>
+
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- หน้าความทรงจำ -->
+  <section id="storyPage" class="page">
+    <div class="card">
+
+      <p class="small-text">OUR STORY</p>
+
+      <h1>ถ้าเธอเข้าได้แสดงว่าเธอจำวันครบรอบได้</h1>
+
+      <div class="date">
+        10 / 06 / 2025
+      </div>
+
+      <p>
+        ตอนนั้นเค้าไม่รู้เลยว่า...
+        <br>
+        บี๋จะกลายเป็นคนที่สำคัญกับเค้าขนาดนี้ ❤️
+      </p>
+
+      <button onclick="showPage('counterPage')">
+        ต่อไป →
+      </button>
+
+    </div>
+  </section>
+
+
+  <!-- หน้านับวัน -->
+  <section id="counterPage" class="page">
+
+    <div class="card">
+
+      <p class="small-text">TOGETHER</p>
+
+      <h1>เรารู้จักกันมาแล้ว</h1>
+
+      <div class="counter">
+        <span id="days">0</span>
+        <small>วัน</small>
+      </div>
+
+      <p>
+        และเราก็มีวันต่อ ๆ ไปกับเธออีกเยอะๆเลย
+      </p>
+
+      <button onclick="showPage('questionPage')">
+        มีคำถามหนึ่ง...
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- หน้าคำถาม -->
+  <section id="questionPage" class="page">
+
+    <div class="card question-card">
+
+      <div class="big-heart">❤️</div>
+
+      <h1>ยังรักเราอยู่ไหม?</h1>
+
+      <p>ตอบได้คำเดียว เธอจับอีกอันไม่ทันหรอก</p>
+
+      <div class="buttons">
+
+        <button
+          class="yes"
+          onclick="loveAnswer()"
+        >
+          รัก ❤️
+        </button>
+
+        <button
+          id="noButton"
+          class="no"
+        >
+          ไม่รัก...จับได้ปะละ
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- หน้าสุดท้าย -->
+  <section id="finalPage" class="page">
+
+    <div id="hearts"></div>
+
+    <div class="card final-card">
+
+      <p class="small-text">MESSAGE FOR YOU</p>
+
+      <div class="big-heart pulse">
+        ❤️
+      </div>
+
+      <h1 id="finalTitle">
+        ถึงบี๋
+      </h1>
+
+      <p id="typeText"></p>
+
+      <button
+        id="surpriseButton"
+        onclick="finalSurprise()"
+      >
+        มีอีกอย่างนะ... 🎁
+      </button>
+
+      <div id="lastMessage">
+
+        <h1>เค้ารักเธอนะ ❤️</h1>
+
+        <p>
+          ขอบคุณที่เข้ามาเป็นส่วนหนึ่งในชีวิตเค้า
+        </p>
+
+        <p class="forever">
+          Our story continues...
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =====================================
+     ไฮไลต์สุดท้าย - 3D PARTICLE
+===================================== -->
+
+<section id="particle3DPage" class="page">
+
+  <!-- พื้นที่แสดงวัตถุ 3 มิติ -->
+  <div id="particle3DContainer"></div>
+
+
+  <!-- ข้อความแนะนำ -->
+  <div class="particle3DGuide">
+
+    <h2>ของขวัญๆ...มีเพลงด้วยๆ</h2>
+
+    <p>
+      👆 ลองใช้นิ้วหมุนดู
+    </p>
+
+  </div>
+
+
+  <!-- ข้อความที่จะปรากฏตอนเจอเซอร์ไพรส์ -->
+  <div id="particleSecret">
+
+    <div class="secretHeart">
+      ❤️
+    </div>
+
+    <h1>
+      เจอแล้ว
+    </h1>
+
+    <p>
+      ในบรรดาคนนับล้าน<br>
+      เค้าดีใจนะที่ได้เจอเธอ
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- โหลดระบบ 3D -->
+<script type="module" src="script.js"></script>
+<audio id="loveMusic" loop preload="auto">
+  <source src="music/love.mp3" type="audio/mpeg">
+</audio>
+
+
+
+</body>
+</html>

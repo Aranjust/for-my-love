@@ -1,0 +1,928 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top,
+      #3b1022,
+      #160811 60%,
+      #080408
+    );
+
+  color: white;
+
+  overflow: hidden;
+}
+
+
+/* ทุกหน้า */
+
+.page {
+  display: none;
+
+  width: 100%;
+  height: 100vh;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  animation: fade 0.8s;
+}
+
+.page.active {
+  display: flex;
+}
+
+
+/* กล่องหลัก */
+
+.card {
+  width: 100%;
+  max-width: 600px;
+
+  text-align: center;
+
+  padding: 45px 30px;
+
+  border-radius: 25px;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  backdrop-filter: blur(15px);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.5);
+}
+
+
+/* ตัวหนังสือ */
+
+h1 {
+  margin: 15px 0;
+
+  font-size: 34px;
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+p {
+  line-height: 1.8;
+
+  color: #ddd;
+}
+
+.small-text {
+  font-size: 12px;
+
+  letter-spacing: 4px;
+
+  color: #ff789e;
+}
+
+
+/* ปุ่ม */
+
+button {
+  margin-top: 30px;
+
+  border: none;
+
+  padding: 14px 30px;
+
+  border-radius: 50px;
+
+  font-size: 17px;
+
+  cursor: pointer;
+
+  background: linear-gradient(
+    135deg,
+    #ff416c,
+    #ff6b8a
+  );
+
+  color: white;
+
+  transition: 0.3s;
+
+  box-shadow:
+    0 8px 25px rgba(255,65,108,0.3);
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.05);
+}
+
+
+/* Loading */
+
+.loading-box {
+  text-align: center;
+
+  width: 400px;
+}
+
+.heart-logo {
+  font-size: 80px;
+
+  color: #ff416c;
+
+  animation: heartbeat 1s infinite;
+}
+
+.progress {
+  width: 100%;
+  height: 10px;
+
+  background: #35101c;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  margin-top: 30px;
+}
+
+#progressBar {
+  height: 100%;
+
+  width: 0%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff416c,
+      #ff9aaf
+    );
+
+  border-radius: 20px;
+
+  transition: width 0.1s;
+}
+
+#loadingText {
+  margin-top: 15px;
+}
+
+
+/* วันที่ */
+
+.date {
+  font-size: 35px;
+
+  font-weight: bold;
+
+  margin: 30px 0;
+
+  color: #ff789e;
+
+  letter-spacing: 3px;
+}
+
+
+/* จำนวนวัน */
+
+.counter {
+  margin: 30px 0;
+}
+
+.counter span {
+  display: block;
+
+  font-size: 90px;
+
+  font-weight: bold;
+
+  color: #ff668d;
+}
+
+.counter small {
+  font-size: 20px;
+}
+
+
+/* คำถาม */
+
+.big-heart {
+  font-size: 70px;
+
+  margin-bottom: 10px;
+}
+
+.buttons {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 20px;
+
+  min-height: 100px;
+}
+
+.yes {
+  background:
+    linear-gradient(
+      135deg,
+      #ff416c,
+      #ff1744
+    );
+}
+
+.no {
+  background: #444;
+
+  position: relative;
+}
+
+
+/* หน้าสุดท้าย */
+
+#typeText {
+  min-height: 150px;
+
+  font-size: 19px;
+
+  white-space: pre-line;
+}
+
+#lastMessage {
+  display: none;
+
+  margin-top: 35px;
+
+  animation: fade 1.5s;
+}
+
+#lastMessage h1 {
+  font-size: 45px;
+
+  color: #ff789e;
+}
+
+.forever {
+  margin-top: 30px;
+
+  font-style: italic;
+
+  color: #ff789e;
+}
+
+
+/* หัวใจลอย */
+
+.floating-heart {
+  position: fixed;
+
+  bottom: -50px;
+
+  font-size: 25px;
+
+  pointer-events: none;
+
+  animation: floatHeart 5s linear forwards;
+}
+
+
+/* Animation */
+
+@keyframes fade {
+
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+@keyframes heartbeat {
+
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+
+}
+
+
+@keyframes floatHeart {
+
+  from {
+    transform: translateY(0) rotate(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(-120vh) rotate(360deg);
+    opacity: 0;
+  }
+
+}
+
+
+.pulse {
+  animation: heartbeat 1s infinite;
+}
+
+
+/* มือถือ */
+
+@media (max-width: 600px) {
+
+  h1 {
+    font-size: 27px;
+  }
+
+  .card {
+    padding: 35px 20px;
+  }
+
+  .counter span {
+    font-size: 70px;
+  }
+
+  #lastMessage h1 {
+    font-size: 34px;
+  }
+
+}
+/* ========================
+   PIN PASSWORD
+======================== */
+
+.password-card {
+  max-width: 420px;
+}
+
+.lock-icon {
+  font-size: 55px;
+  margin-bottom: 15px;
+}
+
+
+/* จุดแสดงรหัส */
+
+.pin-display {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+
+  margin: 30px 0 15px;
+}
+
+.pin-dot {
+  width: 17px;
+  height: 17px;
+
+  border: 2px solid #ff789e;
+  border-radius: 50%;
+
+  transition: 0.2s;
+}
+
+
+/* ตอนใส่ตัวเลขแล้ว */
+
+.pin-dot.filled {
+  background: #ff416c;
+
+  box-shadow:
+    0 0 15px rgba(255, 65, 108, 0.8);
+
+  transform: scale(1.15);
+}
+
+
+/* ข้อความผิด */
+
+#pinMessage {
+  height: 25px;
+
+  color: #ff668d;
+
+  font-size: 14px;
+}
+
+
+/* แป้นตัวเลข */
+
+.keypad {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 70px);
+
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 15px;
+}
+
+
+.keypad button {
+  width: 70px;
+  height: 60px;
+
+  padding: 0;
+  margin: 0;
+
+  border-radius: 18px;
+
+  font-size: 21px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  border:
+    1px solid
+    rgba(255,255,255,0.15);
+
+  box-shadow: none;
+}
+
+
+.keypad button:hover {
+  background:
+    rgba(255,65,108,0.25);
+
+  transform: scale(1.07);
+}
+
+
+.empty-key {
+  visibility: hidden;
+}
+
+
+/* สั่นเมื่อรหัสผิด */
+
+.password-card.shake {
+  animation: shake 0.35s;
+}
+
+
+@keyframes shake {
+
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-10px);
+  }
+
+  50% {
+    transform: translateX(10px);
+  }
+
+  75% {
+    transform: translateX(-10px);
+  }
+
+}
+
+/* =========================================
+   ไฮไลต์สุดท้าย - 3D PARTICLE
+========================================= */
+
+#particle3DPage {
+  position: relative;
+
+  width: 100%;
+  height: 100vh;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #260914 0%,
+      #10040a 55%,
+      #030102 100%
+    );
+
+  /* ป้องกันมือถือเลื่อนหน้าเวลาลากนิ้ว */
+  touch-action: none;
+}
+
+
+/* พื้นที่วาด 3D */
+
+#particle3DContainer {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 1;
+
+  cursor: grab;
+}
+
+
+#particle3DContainer:active {
+  cursor: grabbing;
+}
+
+
+/* Canvas ที่ Three.js สร้างขึ้น */
+
+#particle3DContainer canvas {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  touch-action: none;
+}
+
+
+/* =========================================
+   ข้อความ "ลองหมุนดูสิ"
+========================================= */
+
+.particle3DGuide {
+  position: absolute;
+
+  top: 7%;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 90%;
+
+  text-align: center;
+
+  z-index: 5;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+
+.particle3DGuide h2 {
+  font-size: 25px;
+
+  margin-bottom: 8px;
+
+  font-weight: 500;
+}
+
+
+.particle3DGuide p {
+  color: #ff91ad;
+
+  font-size: 15px;
+
+  letter-spacing: 2px;
+
+  animation:
+    guideMove 1.5s infinite;
+}
+
+
+/* ตอนเริ่มหมุน ให้ข้อความค่อย ๆ หาย */
+
+.particle3DGuide.hide {
+  opacity: 0;
+
+  transform:
+    translateX(-50%)
+    translateY(-20px);
+}
+
+
+/* =========================================
+   ข้อความลับ
+========================================= */
+
+#particleSecret {
+  position: absolute;
+
+  left: 50%;
+  bottom: 8%;
+
+  transform:
+    translateX(-50%)
+    translateY(30px);
+
+  width: 90%;
+
+  text-align: center;
+
+  z-index: 5;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity 1.5s ease,
+    transform 1.5s ease;
+}
+
+
+/* เมื่อเจอข้อความ */
+
+#particleSecret.show {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+
+#particleSecret h1 {
+  color: #ff789e;
+
+  font-size: 38px;
+
+  margin: 5px 0 10px;
+}
+
+
+#particleSecret p {
+  font-size: 17px;
+
+  color: rgba(
+    255,
+    255,
+    255,
+    0.85
+  );
+
+  line-height: 1.8;
+}
+
+
+.secretHeart {
+  font-size: 45px;
+
+  animation:
+    secretHeartBeat 1s infinite;
+}
+
+
+/* =========================================
+   Animation
+========================================= */
+
+@keyframes guideMove {
+
+  0%,
+  100% {
+    transform: translateX(-8px);
+  }
+
+  50% {
+    transform: translateX(8px);
+  }
+
+}
+
+
+@keyframes secretHeartBeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.18);
+  }
+
+}
+
+
+/* =========================================
+   สำหรับมือถือ
+========================================= */
+
+@media (max-width: 600px) {
+
+  .particle3DGuide {
+    top: 6%;
+  }
+
+
+  .particle3DGuide h2 {
+    font-size: 21px;
+  }
+
+
+  .particle3DGuide p {
+    font-size: 13px;
+  }
+
+
+  #particleSecret {
+    bottom: 7%;
+  }
+
+
+  #particleSecret h1 {
+    font-size: 31px;
+  }
+
+
+  #particleSecret p {
+    font-size: 15px;
+  }
+
+}
+/* =====================================================
+   MOBILE VERSION
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+  html,
+  body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  body {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* ทุกหน้า */
+  .page {
+    width: 100%;
+    min-height: 100dvh;
+
+    padding-left: 18px;
+    padding-right: 18px;
+
+    box-sizing: border-box;
+  }
+
+  /* หัวข้อ */
+  h1 {
+    font-size: 30px;
+    line-height: 1.25;
+  }
+
+  h2 {
+    font-size: 22px;
+    line-height: 1.35;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ปุ่มทั่วไป */
+  button {
+    min-height: 48px;
+    font-size: 16px;
+
+    padding: 12px 22px;
+
+    touch-action: manipulation;
+  }
+
+  /* =========================
+     PIN
+     ========================= */
+
+  .password-card {
+    width: 100%;
+    max-width: 360px;
+
+    padding: 25px 18px;
+
+    box-sizing: border-box;
+  }
+
+  .pin-dot {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* ปุ่มตัวเลข */
+  .keypad button {
+    width: 65px;
+    height: 65px;
+
+    font-size: 22px;
+  }
+
+  /* =========================
+     หน้า Particle 3D
+     ========================= */
+
+  #particle3DPage {
+    width: 100%;
+    height: 100dvh;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    touch-action: none;
+  }
+
+  #particle3DContainer {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    touch-action: none;
+  }
+
+  #particle3DContainer canvas {
+    width: 100% !important;
+    height: 100% !important;
+
+    display: block;
+
+    touch-action: none;
+  }
+
+  /* ข้อความด้านบน Particle */
+  .particle3DGuide {
+    top: max(35px, env(safe-area-inset-top));
+
+    width: 90%;
+
+    pointer-events: none;
+  }
+
+  .particle3DGuide h2 {
+    font-size: 21px;
+  }
+
+  .particle3DGuide p {
+    font-size: 13px;
+  }
+
+  /* ข้อความลับ */
+  #particleSecret {
+    bottom:
+      max(
+        35px,
+        env(safe-area-inset-bottom)
+      );
+
+    width: 90%;
+  }
+
+  #particleSecret h1 {
+    font-size: 30px;
+  }
+
+  #particleSecret p {
+    font-size: 15px;
+  }
+
+  .secretHeart {
+    font-size: 40px;
+  }
+}
