@@ -373,7 +373,7 @@ function createHeart() {
 // ======================================================
 
 // เปลี่ยนรหัสตรงนี้
-const correctPIN = "100626";
+const correctPIN = "100525";
 
 let enteredPIN = "";
 
